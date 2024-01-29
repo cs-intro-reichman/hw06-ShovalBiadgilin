@@ -18,6 +18,7 @@ public class Runigram {
 		Color[][] imageOut;
 		Color[][] imageOut2;
 		Color[][] imageOut3;
+		Color[][] imageOut4;
 
 		// Tests the horizontal flipping of an image:
 		imageOut = flippedHorizontally(tinypic);
@@ -31,6 +32,10 @@ public class Runigram {
 		imageOut3 = grayScaled(tinypic);
 		System.out.println();
 		print(imageOut3);
+		
+		imageOut4 = scaled(tinypic, 3, 5);
+		System.out.println();
+		print(imageOut4);
 		
 		
 		
@@ -155,15 +160,15 @@ public class Runigram {
 	public static Color[][] scaled(Color[][] image, int width, int height) {
 		int row = image.length;
 		int col=image[0].length;
-		Color[][] scaling=new Color[row][col];
-		for(int i=0;i<width;i++){ 
-			for (int j=0; j<height;j++){
-				int newWidth= i* (row/width);
-				int newHeight= j* (col/height);
+		Color[][] scaling=new Color[height][width];
+		for(int i=0;i<height;i++){ 
+			for (int j=0; j<width;j++){
+				int newWidth= i* row/height;
+				int newHeight= j* col/width;
 				scaling[i][j]= image [newWidth][newHeight];
 			} 
 		}
-		return image;
+		return scaling;
 	}
 	
 	/**
