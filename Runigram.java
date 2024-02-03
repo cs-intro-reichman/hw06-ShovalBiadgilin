@@ -216,6 +216,7 @@ public class Runigram {
 	 * of the source image.
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
+		// #feedback - please define each variable in a new line.
 		int row1=source.length; int row2=target.length;
 		int cols1=source[0].length; int cols2=target[0].length;
 		if(row1!=row2 || cols1!=cols2){
@@ -223,7 +224,7 @@ public class Runigram {
 		}
 		int i=0;
 		double a=(double) (n-i)/n;
-		while (n-i>=0){
+		while (n-i>=0){ // #feedback - since you run on i from 0 to n, consider using for loop.
 			Color[][] morphing= blend(source, target, a);
 				i++;
 				a=(n-i)/n;
